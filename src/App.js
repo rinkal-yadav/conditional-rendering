@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ClassCompo from './Component/ClassCompo';
+import FunctionCompo from './Component/FunctionCompo';
 
 function App() {
+  const [btn,setBtn]=useState(false)
+  const ButtonSubmit=()=>{
+    setBtn(!btn)
+    
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <span className='App'>
+     <button  className='button' onClick={ButtonSubmit}> Click here for check the conditional rendering.</button>
+      {
+        btn ? <FunctionCompo/> : <ClassCompo/>
+      }
+     </span>
+    </>
   );
 }
 
